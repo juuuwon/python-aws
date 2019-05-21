@@ -1,9 +1,12 @@
 from flask import Flask,request,render_template,session,redirect,url_for
 import pymongo
 from datetime import timedelta
+import json
 
+with open("mongoDB.json") as Json:
+    user_doc = json.loads(Json.read())
 
-mongo_url = 'mongodb+srv://juuuwon:kim-03rla@cluster0-pjygz.mongodb.net/test?retryWrites=true'
+mongo_url = 'mongodb+srv://' + user_doc["MongoID"]+ ':' + user_doc['MongoPassword']+ user_doc["MongoURL"]
 client = pymongo.MongoClient(mongo_url)
 db = pymongo.database.Database(client,'Cluster0')
 Collect = pymongo.collection.Collection(db,'Collect')
