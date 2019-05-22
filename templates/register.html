@@ -2,7 +2,8 @@
 <head>
 </head>
 <body>
-
+{% extends "base.html" %}
+{% block content %}
  <form method="POST" action="./books">
   <input name="Name" type="text" placeholder="book name" />
   <input name="Price" type="text" placeholder="book price" />
@@ -12,10 +13,11 @@
   
  </form>
 
+
  <form method="GET" action="./books">
   
   <input type="submit" value="책 확인하기">
  </form>
-
+{% endblock content %}
 </body>
 </html>
